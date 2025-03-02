@@ -41,12 +41,15 @@ def get_weather(request):
                 forecast_data = forecast_response.json()
 
                 print(f"API response: {data}") # debugging step 6
-                weather_data = {"city": data["location"]["name"]+ ", " + data["location"]["country"], 
-                                "temparature": data["current"]["temp_c"],
-                                "humidity": data["current"]["humidity"],
-                                "description":data["current"]["condition"]["text"],
-                                "icon": data["current"]["condition"]["icon"],
+                weather_data = {
+                    "city": city,
+                    "temperature": data["current"]["temp_c"],
+                    "humidity": data["current"]["humidity"],
+                    "wind_speed": data["current"]["wind_kph"],
+                    "description": data["current"]["condition"]["text"],
+                    "icon": data["current"]["condition"]["icon"],  # Extract weather icon
                 }
+
                 
                 
                 forecast_days = []
@@ -70,7 +73,7 @@ def get_weather(request):
         form = CityForm()
     
     
-    return render(request, "weather/weather.html", {"form": form, "weather": weather_data, "forecast": forecast_data})
+    return render(request, "weather/weather.html", {"form": form, "weather_data": weather_data, "forecast": forecast_data})
 
 
          
