@@ -1,3 +1,4 @@
+import os
 import requests
 from django.shortcuts import render
 from django.core.cache import cache
@@ -6,7 +7,8 @@ from .forms import CityForm
 
 
 # Create your views here.
-API_KEY = ".............." #API Key
+API_KEY = os.getenv("WEATHER_API_KEY")
+
 
 def get_weather(request):
     print("view function called") # debugging step 1

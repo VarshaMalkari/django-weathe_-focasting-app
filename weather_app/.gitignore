@@ -22,3 +22,5 @@ media/
 
 # Ignore compiled files
 *.log
+
+.env
