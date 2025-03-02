@@ -6,7 +6,7 @@ from .forms import CityForm
 
 
 # Create your views here.
-API_KEY = "48855fab9e684de5913182951252802"
+API_KEY = ".............." #API Key
 
 def get_weather(request):
     print("view function called") # debugging step 1
